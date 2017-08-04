@@ -12959,13 +12959,8 @@ var _User2 = _interopRequireDefault(_User);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/*
-Rendering a router will output the right component tree based on the current URL.
-Nested routes' components will be passed down to the parent as `this.props.children`
-
-If the URL is /, then <App/> will be rendered, and this.props.children will be <Search/> (this is the IndexRoute)
-If the URL is /user/ziad-saab then <App/> will be rendered, and this.props.children will be <User/>
-The <User/> instance will be passed a prop called `params`. It will be an object with `{username: 'ziad-saab'}`
+/*This should not look very different from your create react app setup
+All that has changed are the component names, Layout is now our wrapper instead of App
 */
 var routes = _react2.default.createElement(
     _reactRouter.Router,
