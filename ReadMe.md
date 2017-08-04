@@ -4,7 +4,7 @@ This project is intended to show DecodeMTL students a basic react app setup with
 
 ## Getting Started
 
-Remember, the first steps to any project are fork, clone, and npm install. You can check the package.json to see exactly which node modules we are using. 
+Remember, the first steps to any project are **fork, clone, and npm install**. You can check the package.json to see exactly which node modules we are using. 
 
 Before you get coding, let's talk about why we're doing this.
 
@@ -23,7 +23,7 @@ Another primary reason, we are able to tell it, webpack, *how* to bundle our Jav
 
 ### Loading...
 
-This is done by uses loaders. A loader is basically a front-end compiler. Compilers are used assemble code in a different format. Anyone who has worked with a C language knows compilers all too well.
+This is done by uses loaders. A loader is basically a front-end compiler. Compilers are used to assemble code in a different format. Anyone who has worked with a C language knows compilers all too well.
 
 The reason we use loaders is because browsers don't know what the React framework is. Browsers *do* know what vanilla JavaScript is though. Our loader will compile our React code into something the browser can understand.
 
@@ -33,7 +33,7 @@ The loader that you will be using, is [Babel](https://babeljs.io/ "Babel").
 
 Babel is a popular loader with JavaScript frameworks, especially react. Not only can Babel compile React, it can also compile Redux and Native, as well as ES6 and ES7 syntax. Pretty nifty.
 
-You can tell Babel, either in a webpack query or `babel.rc` file what you want to compile within its presets. This gives you full control on how Babel compiles your code. Webpack then bundles everything into a nice compact JS file.
+You can tell Babel, either in a webpack query or `.babelrc` file what you want to compile within its presets. This gives you full control on how Babel compiles your code. Webpack then bundles everything into a nice compact JS file.
 
 
 ## Setting Up
@@ -135,9 +135,9 @@ We have a test key, used to test our desired file type that needs compiling, as 
 
 We then tell Webpack our loader. Babel. Now Webpack knows which compiler we're using.
 
-The last key is our query. Now, this would not be present if we were using a `babel.rc` file, which you will see in some tutorials. 
+The last key is our query. Now, this would not be present if we were using a `.babelrc` file, which you will see in some tutorials. 
 
-A `babel.rc` file houses the presets, keywords that babel looks for so it knows how to read the files, just like our query. 
+A `.babelrc` file houses the presets, keywords that babel looks for so it knows how to read the files, just like our query. 
 
 Personally, I prefer to use query, but ultimately it is up you which way you want to go. 
 
