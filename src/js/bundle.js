@@ -12953,9 +12953,9 @@ var _Choose = __webpack_require__(250);
 
 var _Choose2 = _interopRequireDefault(_Choose);
 
-var _User = __webpack_require__(249);
+var _Pokemon = __webpack_require__(252);
 
-var _User2 = _interopRequireDefault(_User);
+var _Pokemon2 = _interopRequireDefault(_Pokemon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12968,7 +12968,8 @@ var routes = _react2.default.createElement(
     _react2.default.createElement(
         _reactRouter.Route,
         { path: '/', component: _Layout2.default },
-        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Choose2.default })
+        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Choose2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: 'pokemon/:number', component: _Pokemon2.default })
     )
 );
 
@@ -28206,171 +28207,7 @@ exports.default = Layout;
 
 /***/ }),
 /* 248 */,
-/* 249 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(41);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var User = function (_React$Component) {
-    _inherits(User, _React$Component);
-
-    function User() {
-        _classCallCheck(this, User);
-
-        var _this = _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).call(this));
-
-        _this.state = {};
-        return _this;
-    }
-
-    /*
-    This method will be called by React after the first render. It's a perfect place to load
-    data with AJAX. This User component gets mounted in the DOM as soon as the URL is /user/:username
-    When that happens, react-router will pass a `params` prop containing every parameter in the URL, just like
-    when we get URL parameters in Express with req.params. Here, it's this.props.params. Since we called our route
-    parameter `username`, it's available under this.props.params.username
-    We're using it to make an API call to GitHub to fetch the user data for the username in the URL. Once we receive
-    the data -- in the callback -- we call `setState` to put the user data in our state. This will trigger a re-render.
-    When `render` gets called again, `this.state.user` exists and we get the user info display instead of "LOADING..."
-    */
-
-
-    _createClass(User, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            fetch('https://api.github.com/users/' + this.props.params.username).then(function (response) {
-                return response.json();
-            }).then(function (user) {
-                // How can we use `this` inside a callback without binding it??
-                // Make sure you understand this fundamental difference with arrow functions!!!
-                _this2.setState({
-                    user: user
-                });
-            });
-        }
-
-        /*
-        This method is used as a mapping function. Eventually this could be factored out to its own component.
-        */
-
-    }, {
-        key: 'renderStat',
-        value: function renderStat(stat) {
-            return _react2.default.createElement(
-                'li',
-                { key: stat.name, className: 'user-info__stat' },
-                _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: stat.url },
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'user-info__stat-value' },
-                        stat.value
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'user-info__stat-name' },
-                        stat.name
-                    )
-                )
-            );
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            // If the state doesn't have a user key, it means the AJAX didn't complete yet. Simply render a LOADING indicator.
-            if (!this.state.user) {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'user-page' },
-                    'LOADING...'
-                );
-            }
-
-            // If we get to this part of `render`, then the user is loaded
-            var user = this.state.user;
-
-            // Gather up some number stats about the user, to be used in a map below
-            var stats = [{
-                name: 'Public Repos',
-                value: user.public_repos,
-                url: '/user/' + this.props.params.username + '/repos'
-            }, {
-                name: 'Followers',
-                value: user.followers,
-                url: '/user/' + this.props.params.username + '/followers'
-            }, {
-                name: 'Following',
-                value: user.following,
-                url: '/user/' + this.props.params.username + '/following'
-            }];
-
-            // Look in index.css for the styles that make this look like it does
-            return _react2.default.createElement(
-                'div',
-                { className: 'user-page' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'user-info' },
-                    _react2.default.createElement(
-                        _reactRouter.Link,
-                        { className: 'user-info__text', to: '/user/' + user.login },
-                        _react2.default.createElement('img', { className: 'user-info__avatar', src: user.avatar_url, alt: user.login + ' avatar' }),
-                        _react2.default.createElement(
-                            'h2',
-                            { className: 'user-info__title' },
-                            user.login,
-                            ' (',
-                            user.name,
-                            ')'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'user-info__bio' },
-                            user.bio
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'user-info__stats' },
-                        stats.map(this.renderStat)
-                    )
-                )
-            );
-        }
-    }]);
-
-    return User;
-}(_react2.default.Component);
-
-;
-
-exports.default = User;
-
-/***/ }),
+/* 249 */,
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28389,6 +28226,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(41);
 
+var _randomPoke = __webpack_require__(251);
+
+var _randomPoke2 = _interopRequireDefault(_randomPoke);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28405,10 +28246,12 @@ var Choose = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Choose.__proto__ || Object.getPrototypeOf(Choose)).call(this, props));
 
-        _this._handleChoice = function (e) {
-            e.preventDefault();
+        _this._handleChoice = function () {
             alert("Who's that pokemon?");
-            //history.push(`/user/${this.refs.userInput.value}`)
+            var num = _randomPoke2.default.pokemonNumber();
+
+            console.log(num, "number for pokemon");
+            _reactRouter.browserHistory.push('/pokemon/' + num);
         };
 
         return _this;
@@ -28440,6 +28283,93 @@ var Choose = function (_React$Component) {
 ;
 
 exports.default = Choose;
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+//Function that determines the random pokemon selected, out of 151, come on guys, classics!
+
+exports.pokemonNumber = function () {
+	var randomPokeNum = Math.floor(Math.random() * 151);
+
+	if (randomPokeNum === 0) {
+		randomPokeNum = 1;
+	}
+	return randomPokeNum;
+};
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Pokemon = function (_React$Component) {
+    _inherits(Pokemon, _React$Component);
+
+    function Pokemon(props) {
+        _classCallCheck(this, Pokemon);
+
+        var _this = _possibleConstructorReturn(this, (Pokemon.__proto__ || Object.getPrototypeOf(Pokemon)).call(this));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(Pokemon, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            fetch('http://pokeapi.co/api/v2/pokemon/' + this.props.params.number).then(function (result) {
+                return result.json();
+            }).then(function (pokemon) {
+                return console.log(pokemon);
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Gotta catch \'em all!'
+                )
+            );
+        }
+    }]);
+
+    return Pokemon;
+}(_react2.default.Component);
+
+;
+
+exports.default = Pokemon;
 
 /***/ })
 /******/ ]);

@@ -1,15 +1,17 @@
 import React from 'react';
 import { browserHistory as history } from 'react-router';
-
+import randomPoke from '../mods/randomPoke'
 
 class Choose extends React.Component {
     constructor(props) {
         super(props);
     }
-    _handleChoice = (e) => {
-        e.preventDefault();
+    _handleChoice = () => {
         alert("Who's that pokemon?")
-        //history.push(`/user/${this.refs.userInput.value}`)
+        let num = randomPoke.pokemonNumber()
+
+        console.log(num, "number for pokemon")
+        history.push(`/pokemon/${num}`)
     }
 
     render() {
