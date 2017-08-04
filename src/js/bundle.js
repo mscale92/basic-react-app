@@ -28268,7 +28268,7 @@ var Choose = function (_React$Component) {
                 _react2.default.createElement(
                     'h2',
                     null,
-                    'Who\'s that pokemon?'
+                    'Who\'s that pok\xE9mon?'
                 ),
                 _react2.default.createElement(
                     'button',
@@ -28362,7 +28362,7 @@ var Pokemon = function (_React$Component) {
             if (!this.state.name) {
                 return _react2.default.createElement(
                     "div",
-                    { className: "page" },
+                    { className: "page loading" },
                     _react2.default.createElement(
                         "h3",
                         null,

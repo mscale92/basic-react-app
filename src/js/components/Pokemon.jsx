@@ -24,7 +24,7 @@ class Pokemon extends React.Component {
     render() {
 		if(!this.state.name){
 			return(
-				<div className="page">
+				<div className="page loading">
 					<h3>Loading...</h3>
             		<img src="/files/img/pokeball-loader.gif" alt="pokeball spinner"/>
             	</div>

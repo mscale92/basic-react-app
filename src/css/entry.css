@@ -7,7 +7,7 @@ html{box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}
 /*General classes*/
 
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Sedgwick Ave', cursive, 'Montserrat', sans-serif;
     margin: 0;
     color: black;
 }
@@ -32,13 +32,13 @@ a:hover{
 .page{
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
 
 .page h2{
-    padding: 2rem 0;
+    padding: 5rem 0;
 }
 
 /*layout classes*/
@@ -86,9 +86,15 @@ a:hover{
 }
 
 .pokemon .sprite {
-    min-height: 200px;
-    min-width: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 40px 5px mediumvioletred;
+    background: lavenderblush;
+    min-height: 150px;
+    min-width: 150px;
 }
 
 
-
+/*loading classes*/
+.loading{
+    padding: 5rem 0;
+}
