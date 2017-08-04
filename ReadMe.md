@@ -64,17 +64,17 @@ You will see a few files outside of the `\src`folder in this repo. Some are fami
 
 Unlike the express app you built in previous exercises, this server only has one request, `app.get('/*')`.
 
-This means that all requests going through will render the same result, that result being, you're React application's index.html file. 
+This means that all requests going through will render the same result, that result being, you're React application's `index.html` file. 
 
-The index.html file of React is the gateway to the application. Here, you will call your bundled JavaScript file, within a script tag, as well as point your React app to a designated div tag, #app. Remember, your bundle contains all of your compiled react code.
+The `index.html` file of React is the gateway to the application. Here, you will call your bundled JavaScript file, within a `<script tag>`, as well as point your React app to a designated `<div>` tag, `#app`. Remember, your bundle contains all of your compiled react code.
 
 There's one more thing in our server.js that may stand out to you, `'/files', express.static(__dirname + '/src')`
 
 What's going on here?
 
-Well, express is nice enough to have a middleware option for static file paths. We are using the name `/files` as a path variable to mean the current directory, __dirname, plus `/src`.
+Well, express is nice enough to have a middleware option for static file paths. We are using the name `/files` as a path variable to mean the current directory, `__dirname`, plus `/src`.
 
-Put it all together, files means `basic-react-app/src`
+Put it all together, `/files` means `basic-react-app/src`
 
 We can use this variable throughout our react components in order to load static files from our `/src` directory. This includes CSS files as well as images.
 
@@ -107,13 +107,13 @@ This is everything that is inside of our `webpack.config` file. There aren't man
 
 
 
-1. The first thing that you'll notice is the entry, `./src/js/entry.js`. This tells Webpack that it will find our entry file, in this case entry.js. 
+1. The first thing that you'll notice is the entry, `./src/js/entry.js`. This tells Webpack that it will find our entry file, in this case entry.js, in our `src/js/` directories. 
 
-The entry file is what builds our routes and exports them to our html div, #app. In previous exercises, this was app.js.
+The entry file is what builds our routes and exports them to our html `<div>`, #app. In previous exercises, this was `app.js`.
 
 2. The next line is our output, here we have an object specifying our file name. Outputs always take a file name but have other options as well. For our intended purposes, we only need the file name. 
 
-The output tells Webpack where to place the bundle and what it should be called. For us, it will be in the src directory and aptly named, bundle.js
+The output tells Webpack where to place the bundle and what it should be called. For us, it will be in the `/src` directory and aptly named, `bundle.js`.
 
 3. Onto resolve!
 
