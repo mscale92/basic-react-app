@@ -59,7 +59,25 @@ a:hover{
     border-radius: 50%;
 }
 
+
 /*choose classes*/
+
+.choose-button{
+    background: red;
+    border: none;
+    color: white;
+    transition: .5s;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px 5px red;
+    border-radius: 5px;
+}
+
+.choose-button:hover{
+    cursor: pointer;
+    color: white;
+    transform: scale(1.5);
+    box-shadow: 0px 0px 1px 0px red;
+}
 
 /*pokemon classes*/
 

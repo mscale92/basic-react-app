@@ -28273,7 +28273,7 @@ var Choose = function (_React$Component) {
                 _react2.default.createElement(
                     'button',
                     { className: 'choose-button', onClick: this._handleChoice },
-                    'Search'
+                    '???'
                 )
             );
         }

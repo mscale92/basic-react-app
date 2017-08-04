@@ -18,7 +18,7 @@ class Choose extends React.Component {
         return (
             <div className="choose page">
                 <h2>Who's that pokemon?</h2>
-                <button className="choose-button" onClick={this._handleChoice}>Search</button>
+                    <button className="choose-button" onClick={this._handleChoice}>???</button>
             </div>
         );
     }
