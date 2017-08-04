@@ -25,7 +25,7 @@ a:hover{
     color: white;
 }
 
-.layout{
+.layout header{
     background: red;
     display: flex;
     justify-content: flex-start;

@@ -12949,9 +12949,9 @@ var _Layout = __webpack_require__(247);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
-var _Search = __webpack_require__(248);
+var _Choose = __webpack_require__(250);
 
-var _Search2 = _interopRequireDefault(_Search);
+var _Choose2 = _interopRequireDefault(_Choose);
 
 var _User = __webpack_require__(249);
 
@@ -12965,7 +12965,11 @@ All that has changed are the component names, Layout is now our wrapper instead 
 var routes = _react2.default.createElement(
     _reactRouter.Router,
     { history: _reactRouter.browserHistory },
-    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Layout2.default })
+    _react2.default.createElement(
+        _reactRouter.Route,
+        { path: '/', component: _Layout2.default },
+        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Choose2.default })
+    )
 );
 
 _reactDom2.default.render(routes, document.getElementById('app'));
@@ -28201,90 +28205,7 @@ var Layout = function (_React$Component) {
 exports.default = Layout;
 
 /***/ }),
-/* 248 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(41);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/*
-This component displays a form where the user can enter a GitHub username
-When they submit the form either by pressing ENTER or clicking the button,
-we will use react-router's history.push function to push a new URL to the history.
-This will have as an effect to navigate to a new URL, which will display the User component
-Why are we doing this instead of using a <Link>? The answer is straightforward, but make sure you understand!!!
-*/
-var Search = function (_React$Component) {
-    _inherits(Search, _React$Component);
-
-    function Search(props) {
-        _classCallCheck(this, Search);
-
-        // Why do we need to do this?? Make sure you understand!!!
-        var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
-
-        _this._handleSubmit = function (e) {
-            e.preventDefault();
-            _reactRouter.browserHistory.push('/user/' + _this.refs.userInput.value);
-        };
-
-        _this._handleSubmit = _this._handleSubmit.bind(_this);
-        return _this;
-    }
-
-    _createClass(Search, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'search-page' },
-                _react2.default.createElement(
-                    'h2',
-                    null,
-                    'Enter a GitHub username'
-                ),
-                _react2.default.createElement(
-                    'form',
-                    { onSubmit: this._handleSubmit },
-                    _react2.default.createElement('input', { ref: 'userInput', className: 'search-page__input', type: 'text' }),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'search-page__button' },
-                        'Search'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Search;
-}(_react2.default.Component);
-
-;
-
-exports.default = Search;
-
-/***/ }),
+/* 248 */,
 /* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28448,6 +28369,77 @@ var User = function (_React$Component) {
 ;
 
 exports.default = User;
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(41);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Choose = function (_React$Component) {
+    _inherits(Choose, _React$Component);
+
+    function Choose(props) {
+        _classCallCheck(this, Choose);
+
+        var _this = _possibleConstructorReturn(this, (Choose.__proto__ || Object.getPrototypeOf(Choose)).call(this, props));
+
+        _this._handleChoice = function (e) {
+            e.preventDefault();
+            alert("Who's that pokemon?");
+            //history.push(`/user/${this.refs.userInput.value}`)
+        };
+
+        return _this;
+    }
+
+    _createClass(Choose, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'choose page' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Click the button to find out which pokemon you are!'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { className: 'choose-button', onClick: this._handleChoice },
+                    'Search'
+                )
+            );
+        }
+    }]);
+
+    return Choose;
+}(_react2.default.Component);
+
+;
+
+exports.default = Choose;
 
 /***/ })
 /******/ ]);
