@@ -17,7 +17,9 @@ class Layout extends React.Component {
         return (
             <div className="layout">
             	<header>
-            		<h1><Link to="/">Poké Starter App!</Link></h1>
+                    <img src="/files/img/pokeball-open.gif" alt="pokeball" className="pokeball"/>
+            		<h1 className="layout-h1"><Link to="/">Poké Starter App!</Link></h1>
+                    <img src="/files/img/pokeball-open.gif" alt="pokeball" className="pokeball"/>
             	</header>
             	
             	<main>

@@ -28179,15 +28179,17 @@ var Layout = function (_React$Component) {
                 _react2.default.createElement(
                     'header',
                     null,
+                    _react2.default.createElement('img', { src: '/files/img/pokeball-open.gif', alt: 'pokeball', className: 'pokeball' }),
                     _react2.default.createElement(
                         'h1',
-                        null,
+                        { className: 'layout-h1' },
                         _react2.default.createElement(
                             _reactRouter.Link,
                             { to: '/' },
                             'Pok\xE9 Starter App!'
                         )
-                    )
+                    ),
+                    _react2.default.createElement('img', { src: '/files/img/pokeball-open.gif', alt: 'pokeball', className: 'pokeball' })
                 ),
                 _react2.default.createElement(
                     'main',
@@ -28247,10 +28249,10 @@ var Choose = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Choose.__proto__ || Object.getPrototypeOf(Choose)).call(this, props));
 
         _this._handleChoice = function () {
-            alert("Who's that pokemon?");
+            //alert("Who's that pokemon?")
             var num = _randomPoke2.default.pokemonNumber();
 
-            console.log(num, "number for pokemon");
+            // console.log(num, "number for pokemon")
             _reactRouter.browserHistory.push('/pokemon/' + num);
         };
 
@@ -28266,7 +28268,7 @@ var Choose = function (_React$Component) {
                 _react2.default.createElement(
                     'h2',
                     null,
-                    'Click the button to find out which pokemon you are!'
+                    'Who\'s that pokemon?'
                 ),
                 _react2.default.createElement(
                     'button',
@@ -28340,25 +28342,49 @@ var Pokemon = function (_React$Component) {
     }
 
     _createClass(Pokemon, [{
-        key: 'componentDidMount',
+        key: "componentDidMount",
         value: function componentDidMount() {
-            fetch('http://pokeapi.co/api/v2/pokemon/' + this.props.params.number).then(function (result) {
+            var _this2 = this;
+
+            fetch("http://pokeapi.co/api/v2/pokemon/" + this.props.params.number).then(function (result) {
                 return result.json();
             }).then(function (pokemon) {
-                return console.log(pokemon);
+                console.log(pokemon, "pokemon object");
+                _this2.setState({
+                    name: pokemon.name,
+                    sprite: pokemon.sprites.front_default
+                });
             });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
-
+            if (!this.state.name) {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "page" },
+                    _react2.default.createElement(
+                        "h3",
+                        null,
+                        "Loading..."
+                    ),
+                    _react2.default.createElement("img", { src: "/files/img/pokeball-loader.gif", alt: "pokeball spinner" })
+                );
+            }
             return _react2.default.createElement(
-                'div',
-                null,
+                "div",
+                { className: "pokemon page" },
                 _react2.default.createElement(
-                    'h2',
+                    "h2",
                     null,
-                    'Gotta catch \'em all!'
+                    "It's ",
+                    this.state.name,
+                    "!"
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "sprite-box" },
+                    _react2.default.createElement("img", { src: this.state.sprite, alt: this.state.name, className: "sprite" })
                 )
             );
         }

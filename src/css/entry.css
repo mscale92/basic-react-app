@@ -4,6 +4,8 @@ progress,sub,sup{vertical-align:baseline;}button,hr,input{overflow:visible;}html
 
 html{box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}
 
+/*General classes*/
+
 body {
     font-family: Helvetica, sans-serif;
     margin: 0;
@@ -25,10 +27,50 @@ a:hover{
     color: white;
 }
 
+
+    /*all component div's general class*/
+.page{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.page h2{
+    padding: 2rem 0;
+}
+
+/*layout classes*/
+
 .layout header{
     background: red;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 1.5rem 3rem;
 }
+
+.layout h1 {
+    padding: 0 2rem;
+}
+
+.layout img.pokeball {
+    border-radius: 50%;
+}
+
+/*choose classes*/
+
+/*pokemon classes*/
+
+.pokemon .sprite-box{
+    position: relative;
+}
+
+.pokemon .sprite {
+    min-height: 200px;
+    min-width: 200px;
+}
+
+
+

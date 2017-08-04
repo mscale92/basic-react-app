@@ -7,5 +7,5 @@ exports.pokemonNumber = function(){
 			randomPokeNum = 1;
 		}
 		return randomPokeNum;
- }
+ };
   
