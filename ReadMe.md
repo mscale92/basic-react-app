@@ -2,7 +2,7 @@
 
 This project is intended to show DecodeMTL students a basic react app setup with webpack and babel that uses ES6 and ES7 syntax.
 
-##Getting Started
+## Getting Started
 
 Remember, the first steps to any project are fork, clone, and npm install. You can check the package.json to see exactly which node modules we are using. 
 
@@ -36,7 +36,7 @@ Babel is a popular loader with JavaScript frameworks, especially react. Not only
 You can tell Babel, either in a webpack query or `babel.rc` file what you want to compile within its presets. This gives you full control on how Babel compiles your code. Webpack then bundles everything into a nice compact JS file.
 
 
-##Setting Up
+## Setting Up
 
 You will see a few files outside of the `\src`folder in this repo. Some are familiar, `package.json` and `.gitignore`, but others are new. Let's go over what they are and what lays inside.
 
@@ -48,7 +48,7 @@ You will see a few files outside of the `\src`folder in this repo. Some are fami
 		This is your webpack configuration file. 
 		Here is where all the bundling, compiling goodness happens. 
 
-###Server.js
+### Server.js
 
 	var express = require('express');
 
@@ -78,7 +78,7 @@ Put it all together, files means `basic-react-app/src`
 
 We can use this variable throughout our react components in order to load static files from our `/src` directory. This includes CSS files as well as images.
 
-###webpack.config.js
+### webpack.config.js
 
 	module.exports = {
 	    // simple config from http://webpack.github.io/docs/configuration.html
@@ -146,7 +146,7 @@ Within our query we have react, of course, es2015, which is ES6, and stage-0. St
 
 Now that we know what's in our newer files, it's time to truly get started!
 
-##Running our Scripts
+## Running our Scripts
 
 In your `package.json` file, you'll notice an area for scripts
 
@@ -166,7 +166,7 @@ For all custom script names, like `dev`, we need to use the keyword run.
 
 	npm run dev
 
-###What do the scripts do?
+### What do the scripts do?
 
 React needs to run on a server to in order to render itself. We do this by running our server file. But, instead of always having to say, `node server.js`
 we can simply do
@@ -186,7 +186,7 @@ Have both of these terminals running while developing your application.
 And that's it! 
 
 
-##Let loose and have fun coding
+## Let loose and have fun coding
 
 Now that you know all about setting up your own React environment, it's time to do so. 
 
@@ -194,7 +194,7 @@ Trying mimicking all of the basics in this Repo when you start to make your own 
 
 For now, you can play around with the provided components and API in order to see how similar it is to the Create-React-APP environment.
 
-###How to make webpack even better?
+### How to make webpack even better?
 
 You guys may want to edit the webpack configuration provided, go for it! 
 
