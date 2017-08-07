@@ -158,7 +158,7 @@ In your `package.json` file, you'll notice an area for scripts
 	    "start": "node server.js"
 	  },
 
-This is where we store command to run with npm. Both `test` and `start` are built in keywords for npm. To run those scripts, simply type
+This is where we store commands to run with npm. Both `test` and `start` are built in keywords for npm. To run those scripts, simply type
 
 	npm start
 Or
