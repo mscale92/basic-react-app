@@ -9,7 +9,9 @@ Remember, the first steps to any project are **fork, clone, and npm install**. Y
 Before you get coding, let's talk about why we're doing this.
 
 ### Why not use Create-React-App?
-Create-React-App is a great tool for building React applications quickly. However, it does not show everything that is happening behind the scenes nor does CRA allow you to edit what is behind the scenes. 
+Create-React-App is a great tool for building React applications quickly. However, it does not show everything that is happening behind the scenes. 
+
+CRA does allow you to edit what is behind the scenes, but you must eject the files to do so. Their configuration is more advanced than what a beginner would idealy start with; that's why I'll show you how to make your own setup in order to learn how configure React settings.  
 
 Having control on how React is rendered, as well as what is rendered, is part of being a strong React programmer. Once you've adapted to using two tools, webpack and babel, you'll be able to easily build your own React application sans CRA.
 
@@ -160,6 +162,7 @@ This is where we store command to run with npm. Both `test` and `start` are buil
 
 	npm start
 Or
+	
 	npm test
 
 For all custom script names, like `dev`, we need to use the keyword run.
