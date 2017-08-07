@@ -66,7 +66,7 @@ You will see a few files outside of the `\src`folder in this repo. Some are fami
 
 Unlike the express app you built in previous exercises, this server only has one request, `app.get('/*')`.
 
-This means that all requests going through will render the same result, that result being, you're React application's `index.html` file. 
+This means that all requests going through will render the same result, that result being, your React application's `index.html` file. 
 
 The `index.html` file of React is the gateway to the application. Here, you will call your bundled JavaScript file, within a `<script tag>`, as well as point your React app to a designated `<div>` tag, `#app`. Remember, your bundle contains all of your compiled react code.
 
