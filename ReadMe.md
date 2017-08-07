@@ -173,9 +173,11 @@ For all custom script names, like `dev`, we need to use the keyword run.
 
 React needs to run on a server to in order to render itself. We do this by running our server file. But, instead of always having to say, `node server.js`
 we can simply do
+	
 	npm start 
 
 Before we run our server though, we need to have webpack compile our code. Do this by running
+	
 	npm run dev
 
 You will have to use two terminal windows for this.
